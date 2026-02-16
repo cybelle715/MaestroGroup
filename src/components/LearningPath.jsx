@@ -1,4 +1,4 @@
-import { Users, Clock, Calendar, MessageSquare, BookOpen, Award, GraduationCap, Check } from 'lucide-react';
+import { Users, Clock, Calendar, MessageSquare, BookOpen, Award, GraduationCap, Check, ArrowRight } from 'lucide-react';
 
 const Programs = () => {
   const programs = [
@@ -7,40 +7,40 @@ const Programs = () => {
       description: "TCF/TEF prep with weekly mock exams and targeted strategies.",
       icon: <Award className="w-6 h-6" />,
       duration: "8-12 weeks",
-      groupSize: "Max 5 students",
+      groupSize: "Max 4 students",
+      level: "A2 → B2",
       features: ["Weekly mock tests", "Timing strategies", "Error correction", "Speaking drills"],
       popular: true,
-      price: "$149/month"
     },
     {
       title: "Foundations",
       description: "From zero to conversational in small, supportive groups.",
       icon: <BookOpen className="w-6 h-6" />,
       duration: "8-12 weeks",
-      groupSize: "Max 5 students",
+      groupSize: "Max 4 students",
+      level: "A0 → A2",
       features: ["Basic conversations", "Essential grammar", "Pronunciation", "Daily vocabulary"],
       popular: false,
-      price: "$149/month"
     },
     {
       title: "Fluency Builder",
       description: "Advanced conversation and complex grammar mastery.",
       icon: <MessageSquare className="w-6 h-6" />,
       duration: "12-16 weeks",
-      groupSize: "Max 5 students",
+      groupSize: "Max 4 students",
+      level: "B1 → B2",
       features: ["Complex dialogues", "Advanced grammar", "Debate practice", "Cultural idioms"],
       popular: false,
-      price: "$149/month"
     },
     {
-      title: "Group Conversation",
+      title: "Conversation Circles",
       description: "Practice speaking in themed conversation circles.",
       icon: <Users className="w-6 h-6" />,
       duration: "Flexible",
-      groupSize: "Max 5 students",
+      groupSize: "Max 4 students",
+      level: "All levels",
       features: ["Themed discussions", "Peer feedback", "Real-life scenarios", "Weekly topics"],
       popular: false,
-      price: "$99/month"
     }
   ];
 
@@ -54,7 +54,7 @@ const Programs = () => {
     {
       step: "2",
       title: "Group Placement",
-      description: "Join a small group of 5 at your exact level and schedule.",
+      description: "Join a small group of 4 at your exact level and schedule.",
       icon: <Users className="w-5 h-5" />
     },
     {
@@ -82,7 +82,7 @@ const Programs = () => {
           </h2>
           
           <p className="text-lg text-[#211a1d]/60 max-w-2xl mx-auto">
-            All programs feature small groups of 5 students for personalized attention and maximum speaking practice.
+            All programs feature small groups of 4 students for personalized attention and maximum speaking practice.
           </p>
         </div>
 
@@ -114,19 +114,19 @@ const Programs = () => {
           </div>
         </div>
 
-        {/* Program Cards */}
+        {/* Program Cards - NO BUTTONS */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {programs.map((program, index) => (
             <div 
               key={index} 
               className={`bg-white rounded-2xl border overflow-hidden transition-all duration-300 hover:shadow-lg ${
-                program.popular ? 'border-[#6320ee] border-' : 'border-[#cad5ca]'
+                program.popular ? 'border-[#6320ee] border-2 relative' : 'border-[#cad5ca]'
               }`}
             >
-              {/* Popular Badge */}
+              {/* Popular Badge - FIXED POSITIONING */}
               {program.popular && (
-                <div className="bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white text-xs font-bold py-1.5 text-center">
-                  MOST POPULAR
+                <div className="bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white text-xs font-bold py-1.5 px-3 text-center w-full">
+                  ⭐ MOST POPULAR
                 </div>
               )}
               
@@ -138,7 +138,12 @@ const Programs = () => {
                       {program.icon}
                     </div>
                   </div>
-                  <h3 className="font-bold text-[#211a1d] text-lg">{program.title}</h3>
+                  <div>
+                    <h3 className="font-bold text-[#211a1d] text-lg">{program.title}</h3>
+                    <span className="text-xs text-[#6320ee] bg-[#f8f0fb] px-2 py-0.5 rounded-full inline-block mt-1">
+                      {program.level}
+                    </span>
+                  </div>
                 </div>
                 
                 {/* Description */}
@@ -147,17 +152,17 @@ const Programs = () => {
                 {/* Duration & Group Size */}
                 <div className="flex items-center gap-4 mb-4 text-sm">
                   <div className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-[#211a1d]/50" />
+                    <Clock className="w-3.5 h-3.5 text-[#6320ee]" />
                     <span className="text-[#211a1d] font-medium">{program.duration}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <Users className="w-3.5 h-3.5 text-[#211a1d]/50" />
+                    <Users className="w-3.5 h-3.5 text-[#8075ff]" />
                     <span className="text-[#211a1d] font-medium">{program.groupSize}</span>
                   </div>
                 </div>
                 
                 {/* Features */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2">
                   {program.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center text-sm text-[#211a1d]/70">
                       <Check className="w-3.5 h-3.5 text-[#6320ee] mr-2 flex-shrink-0" />
@@ -166,31 +171,21 @@ const Programs = () => {
                   ))}
                 </ul>
                 
-                {/* Price & CTA */}
-                <div className="mt-auto">
-                  <div className="text-lg font-bold text-[#211a1d] mb-3">{program.price}</div>
-                  <button className={`w-full py-2.5 font-semibold rounded-lg transition-all ${
-                    program.popular 
-                      ? 'bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white hover:shadow-md' 
-                      : 'bg-[#f8f0fb] text-[#211a1d] border border-[#cad5ca] hover:bg-[#f8f0fb]/80'
-                  }`}>
-                    {program.popular ? 'Join Waitlist' : 'View Schedule'}
-                  </button>
-                </div>
+                {/* NO BUTTON - removed completely */}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Simple CTA */}
+        {/* CTA to Pricing Page */}
         <div className="text-center">
           <div className="bg-gradient-to-r from-[#f8f0fb] to-[#f8f0fb]/50 rounded-2xl p-8 border border-[#cad5ca]/50">
-            <h3 className="text-xl font-bold text-[#211a1d] mb-3">Need Help Choosing?</h3>
+            <h3 className="text-xl font-bold text-[#211a1d] mb-3">Ready to Start?</h3>
             <p className="text-[#211a1d]/60 mb-6 max-w-md mx-auto">
-              Take our free 5-minute assessment to find your perfect group match.
+              View our transparent pricing and choose the perfect plan for your goals.
             </p>
             <button className="px-8 py-3 bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white font-semibold rounded-xl hover:shadow-lg transition-all">
-              Take Free Assessment
+              See Pricing & Join
             </button>
           </div>
         </div>

@@ -1,15 +1,12 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Calendar } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Home', href: '#home' },
     { label: 'Programs', href: '#programs' },
-    { label: 'Method', href: '#method' },
     { label: 'Pricing', href: '#pricing' },
-    { label: 'Testimonials', href: '#testimonials' },
   ];
 
   return (
@@ -68,9 +65,10 @@ const Navbar = () => {
               </a>
             ))}
             
-            {/* CTA Button with glow effect */}
-            <button className="ml-4 px-6 py-2.5 bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#6320ee]/30 transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden group">
-              <span className="relative z-10">Join Group</span>
+            {/* Book a Free Call Button */}
+            <button className="ml-4 px-6 py-2.5 bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#6320ee]/30 transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden group flex items-center gap-2">
+              <Calendar className="w-4 h-4" />
+              <span className="relative z-10">Book a Free Call</span>
               
               {/* Shine effect */}
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
@@ -127,16 +125,10 @@ const Navbar = () => {
                   </a>
                 ))}
                 
-                {/* Mobile CTA */}
-                <button className="w-full mt-2 px-6 py-3.5 bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 relative overflow-hidden group">
-                  <span className="relative z-10">Join Next Group</span>
-                  
-                  {/* Limited seats badge */}
-                  <div className="absolute -top-2 -right-2">
-                    <div className="px-2 py-0.5 bg-white/90 backdrop-blur-sm text-[#211a1d] text-xs font-bold rounded-full border border-[#cad5ca]">
-                      3 spots left
-                    </div>
-                  </div>
+                {/* Mobile CTA - Book a Free Call */}
+                <button className="w-full mt-2 px-6 py-3.5 bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 relative overflow-hidden group flex items-center justify-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  <span className="relative z-10">Book a Free Call</span>
                 </button>
                 
                 {/* Contact info */}

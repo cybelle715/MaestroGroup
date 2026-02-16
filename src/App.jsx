@@ -1,9 +1,11 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import Navbar from './Components/Navbar';
 import Hero from './components/Hero';
 import FAQ from './components/FAQ';
 import LearningPath from './components/LearningPath';
 import Testimonials from './components/Testimonial';
+import Pricing from './components/Pricing';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -13,9 +15,10 @@ function App() {
         <Navbar />
         <Hero />
         <LearningPath />
-        <Testimonials />
-
+        {/* <Testimonials /> */}
+        <Pricing />
         <FAQ />
+         <Footer />
 
     </>
   );
