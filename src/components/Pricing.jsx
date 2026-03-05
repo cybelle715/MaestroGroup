@@ -150,104 +150,68 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="pricing" className="py-16 md:py-24 bg-gradient-to-b from-white to-[#f8f0fb]">
+    <section id="pricing" className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-white to-[#F6FCFB]">
       <div className="container mx-auto px-4 sm:px-6">
         
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-[#cad5ca] mb-4">
-            <Zap className="w-4 h-4 text-[#6320ee]" />
-            <span className="text-sm font-semibold text-[#211a1d]">PRICING</span>
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#F6FCFB] rounded-full border border-[#CADADF] mb-4">
+            <span className="text-xs sm:text-sm font-semibold text-[#005D6D]">PRICING</span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-black text-[#211a1d] mb-4">
-              {/* Monthly Pricing */}
-            <span className="block bg-gradient-to-r from-[#6320ee] to-[#8075ff] bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#211a1d] mb-3 sm:mb-4">
+            <span className="bg-gradient-to-r from-[#005D6D] to-[#6C8F99] bg-clip-text text-transparent">
               Monthly Pricing
             </span>
           </h1>
           
-          <p className="text-lg text-[#211a1d]/60 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-[#211a1d]/60 max-w-2xl mx-auto px-4">
             All programs include small groups of 4, live sessions, and all materials. No hidden fees.
           </p>
         </div>
 
-        {/* Billing Toggle */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-white p-1 rounded-2xl border border-[#cad5ca] inline-flex">
-            <button
-              onClick={() => setBillingCycle('monthly')}
-              className={`px-6 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                billingCycle === 'monthly'
-                  ? 'bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white'
-                  : 'text-[#211a1d]/70 hover:text-[#6320ee]'
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBillingCycle('quarterly')}
-              className={`px-6 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                billingCycle === 'quarterly'
-                  ? 'bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white'
-                  : 'text-[#211a1d]/70 hover:text-[#6320ee]'
-              }`}
-            >
-              Quarterly <span className="text-xs opacity-80">Save 6%</span>
-            </button>
-            <button
-              onClick={() => setBillingCycle('yearly')}
-              className={`px-6 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                billingCycle === 'yearly'
-                  ? 'bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white'
-                  : 'text-[#211a1d]/70 hover:text-[#6320ee]'
-              }`}
-            >
-              Yearly <span className="text-xs opacity-80">Save 11%</span>
-            </button>
-          </div>
-        </div>
+      
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 px-4 sm:px-0">
           {pricingPlans.map((plan, index) => (
             <div 
               key={index} 
-              className={`bg-white rounded-2xl border overflow-hidden transition-all duration-300 hover:shadow-xl ${
-                plan.popular ? 'border-[#6320ee] border-2 relative' : 'border-[#cad5ca]'
+              className={`bg-white rounded-xl sm:rounded-2xl border overflow-hidden transition-all duration-300 hover:shadow-xl ${
+                plan.popular ? 'border-[#005D6D] border-2 relative' : 'border-[#CADADF]'
               }`}
             >
-              {/* Popular Badge - FIXED */}
+              {/* Popular Badge */}
               {plan.popular && (
-                <div className="bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white text-xs font-bold py-1.5 px-3 text-center w-full">
+                <div className="bg-gradient-to-r from-[#005D6D] to-[#6C8F99] text-white text-xs font-bold py-1.5 px-3 text-center w-full">
                   ⭐ BEST SELLER
                 </div>
               )}
 
-              <div className="p-6">
+              <div className="p-4 sm:p-5 md:p-6">
                 {/* Plan Name & Icon */}
-                <div className="flex items-center gap-2 mb-4">
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center ${
                     plan.popular 
-                      ? 'bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white' 
-                      : 'bg-[#f8f0fb] text-[#6320ee]'
+                      ? 'bg-gradient-to-r from-[#005D6D] to-[#6C8F99] text-white' 
+                      : 'bg-[#F6FCFB] text-[#005D6D]'
                   }`}>
                     {plan.icon}
                   </div>
-                  <h3 className="font-bold text-lg text-[#211a1d]">{plan.name}</h3>
+                  <h3 className="font-bold text-base sm:text-lg text-[#211a1d]">{plan.name}</h3>
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-[#211a1d]/60 mb-4">{plan.description}</p>
+                <p className="text-xs sm:text-sm text-[#211a1d]/60 mb-3 sm:mb-4">{plan.description}</p>
 
                 {/* Quick Specs */}
-                <div className="flex items-center gap-3 mb-4 text-xs border-b border-[#cad5ca]/20 pb-4">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 sm:mb-4 text-[10px] sm:text-xs border-b border-[#CADADF]/20 pb-3 sm:pb-4">
                   <div className="flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-[#6320ee]" />
+                    <Clock className="w-3 h-3 text-[#005D6D]" />
                     <span>{plan.sessions}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Users className="w-3 h-3 text-[#8075ff]" />
+                    <Users className="w-3 h-3 text-[#6C8F99]" />
                     <span>{plan.groupSize}</span>
                   </div>
                   <div className="flex items-center gap-1">
@@ -257,46 +221,46 @@ const Pricing = () => {
                 </div>
 
                 {/* Price */}
-                <div className="mb-4">
-                  <div className="text-xs text-[#211a1d]/50">Starting from</div>
-                  <div className="flex items-end gap-2">
+                <div className="mb-3 sm:mb-4">
+                  <div className="text-[10px] sm:text-xs text-[#211a1d]/50">Starting from</div>
+                  <div className="flex items-end gap-2 flex-wrap">
                     {plan.originalPrice && (
-                      <span className="text-lg text-[#211a1d]/40 line-through">
+                      <span className="text-base sm:text-lg text-[#211a1d]/40 line-through">
                         ${plan.originalPrice[billingCycle]}
                       </span>
                     )}
                     <div>
-                      <span className="text-3xl font-bold text-[#211a1d]">${plan.price[billingCycle]}</span>
-                      <span className="text-sm text-[#211a1d]/60">/mo</span>
+                      <span className="text-2xl sm:text-3xl font-bold text-[#211a1d]">${plan.price[billingCycle]}</span>
+                      <span className="text-xs sm:text-sm text-[#211a1d]/60">/mo</span>
                     </div>
                   </div>
                   {billingCycle !== 'monthly' && (
-                    <div className="text-xs text-[#6320ee] mt-1">
+                    <div className="text-[10px] sm:text-xs text-[#005D6D] mt-1">
                       ${plan.price[billingCycle] * (billingCycle === 'quarterly' ? 3 : 12)} billed {billingCycle}
                     </div>
                   )}
                 </div>
 
                 {/* Features List */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
                   {plan.features.slice(0, 4).map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-xs">
-                      <Check className="w-3 h-3 text-[#6320ee] shrink-0 mt-0.5" />
+                    <li key={idx} className="flex items-start gap-1.5 sm:gap-2 text-[10px] sm:text-xs">
+                      <Check className="w-3 h-3 text-[#005D6D] shrink-0 mt-0.5" />
                       <span className="text-[#211a1d]/70">{feature}</span>
                     </li>
                   ))}
                   {plan.features.length > 4 && (
-                    <li className="text-xs text-[#6320ee] font-medium">
+                    <li className="text-[10px] sm:text-xs text-[#005D6D] font-medium">
                       +{plan.features.length - 4} more features
                     </li>
                   )}
                 </ul>
 
                 {/* CTA Button */}
-                <button className={`w-full py-3 rounded-xl font-semibold text-sm transition-all ${
+                <button className={`w-full py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all ${
                   plan.popular
-                    ? 'bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white hover:shadow-lg'
-                    : 'bg-[#f8f0fb] text-[#211a1d] border border-[#cad5ca] hover:border-[#6320ee]/50'
+                    ? 'bg-gradient-to-r from-[#005D6D] to-[#6C8F99] text-white hover:shadow-lg'
+                    : 'bg-[#F6FCFB] text-[#211a1d] border border-[#CADADF] hover:border-[#005D6D]/50'
                 }`}>
                   Choose Plan
                 </button>
@@ -306,13 +270,13 @@ const Pricing = () => {
         </div>
 
         {/* What's Included - Grid */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold text-[#211a1d] mb-6 text-center">What's Included in All Plans</h2>
-          <div className="bg-white rounded-2xl border border-[#cad5ca] p-8">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div className="mb-12 sm:mb-16 px-4 sm:px-0">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#211a1d] mb-4 sm:mb-6 text-center">What's Included in All Plans</h2>
+          <div className="bg-white rounded-xl sm:rounded-2xl border border-[#CADADF] p-4 sm:p-6 md:p-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
               {whatsIncluded.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-sm">
-                  <Check className="w-4 h-4 text-[#6320ee] shrink-0" />
+                <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm">
+                  <Check className="w-3 h-3 sm:w-4 sm:h-4 text-[#005D6D] shrink-0" />
                   <span className="text-[#211a1d]/70">{item}</span>
                 </div>
               ))}
@@ -320,49 +284,12 @@ const Pricing = () => {
           </div>
         </div>
 
-        {/* FAQ Section */}
-        {/* <div className="max-w-3xl mx-auto mb-16">
-          <h2 className="text-2xl font-bold text-[#211a1d] mb-8 text-center">Frequently Asked Questions</h2>
-          
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="bg-white rounded-xl border border-[#cad5ca] p-5">
-                <div className="flex items-start gap-3">
-                  <HelpCircle className="w-5 h-5 text-[#6320ee] shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="font-semibold text-[#211a1d] mb-2">{faq.question}</h3>
-                    <p className="text-sm text-[#211a1d]/60">{faq.answer}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div> */}
+       
 
-        {/* Final CTA */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-[#6320ee]/5 to-[#8075ff]/5 rounded-3xl p-8 border border-[#cad5ca]/50 max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold text-[#211a1d] mb-3">Still have questions?</h3>
-            <p className="text-[#211a1d]/60 mb-6">
-              Book a free 15-minute call to discuss which program fits your goals.
-            </p>
-            <button className="px-8 py-3 bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white font-semibold rounded-xl hover:shadow-lg transition-all flex items-center gap-2 mx-auto">
-              Book a Free Call
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
+       
 
-        {/* Trust Badge */}
-        <div className="mt-8 text-center">
-          <div className="inline-flex items-center gap-4 px-4 py-2 bg-[#f8f0fb] rounded-full text-xs text-[#211a1d]/60 border border-[#cad5ca]/30">
-            <span>🔒 Secure payment</span>
-            <span className="w-1 h-1 rounded-full bg-[#cad5ca]"></span>
-            <span>⏱️ Cancel anytime</span>
-            <span className="w-1 h-1 rounded-full bg-[#cad5ca]"></span>
-            <span>🎓 10+ students</span>
-          </div>
-        </div>
+        
+
       </div>
     </section>
   );

@@ -36,49 +36,53 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-16 md:py-20 bg-white">
+    <section id="faq" className="py-12 sm:py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
         
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#211a1d] mb-4">
+        <div className="text-center mb-10 sm:mb-12">
+         
+          
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#211a1d] mb-3 sm:mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-[#211a1d]/60 max-w-xl mx-auto">
+          <p className="text-sm sm:text-base text-[#211a1d]/60 max-w-xl mx-auto px-4">
             Everything you need to know about our group French classes
           </p>
         </div>
 
         {/* FAQ Items */}
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4 px-4 sm:px-0">
           {faqItems.map((item, index) => (
             <div 
               key={index} 
-              className={`bg-white rounded-xl border border-[#cad5ca] overflow-hidden transition-all duration-200 hover:border-[#8075ff]/30 ${
-                openIndex === index ? 'border-[#8075ff]/50 shadow-md' : ''
+              className={`bg-white rounded-lg sm:rounded-xl border overflow-hidden transition-all duration-200 ${
+                openIndex === index 
+                  ? 'border-[#005D6D] shadow-md' 
+                  : 'border-[#CADADF] hover:border-[#6C8F99]/30'
               }`}
             >
               <button
-                className="w-full flex items-center justify-between p-5 md:p-6 text-left"
+                className="w-full flex items-center justify-between p-4 sm:p-5 md:p-6 text-left"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 aria-expanded={openIndex === index}
               >
-                <span className="font-semibold text-[#211a1d] pr-6 text-left">
+                <span className="font-semibold text-[#211a1d] pr-4 text-sm sm:text-base md:text-lg text-left">
                   {item.question}
                 </span>
                 
-                <ChevronDown className={`w-5 h-5 text-[#6320ee] flex-shrink-0 transition-transform duration-200 ${
+                <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 text-[#005D6D] flex-shrink-0 transition-transform duration-200 ${
                   openIndex === index ? 'rotate-180' : ''
                 }`} />
               </button>
               
               <div 
-                className={`px-5 md:px-6 overflow-hidden transition-all duration-200 ${
-                  openIndex === index ? 'pb-5 md:pb-6 opacity-100' : 'max-h-0 opacity-0'
+                className={`px-4 sm:px-5 md:px-6 overflow-hidden transition-all duration-200 ${
+                  openIndex === index ? 'pb-4 sm:pb-5 md:pb-6 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="pt-2 border-t border-[#cad5ca]/30">
-                  <p className="text-[#211a1d]/70 leading-relaxed">
+                <div className="pt-2 sm:pt-3 border-t border-[#CADADF]/30">
+                  <p className="text-[#211a1d]/70 text-xs sm:text-sm md:text-base leading-relaxed">
                     {item.answer}
                   </p>
                 </div>
@@ -88,36 +92,38 @@ const FAQ = () => {
         </div>
 
         {/* Simple CTA */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-[#6320ee]/5 to-[#8075ff]/5 rounded-2xl p-6 md:p-8 max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold text-[#211a1d] mb-3">
+        <div className="mt-12 sm:mt-16 text-center px-4 sm:px-0">
+          <div className="bg-gradient-to-r from-[#F6FCFB] to-[#F6FCFB]/50 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 max-w-2xl mx-auto border border-[#CADADF]/50">
+            <h3 className="text-lg sm:text-xl font-bold text-[#211a1d] mb-2 sm:mb-3">
               Still have questions?
             </h3>
-            <p className="text-[#211a1d]/60 mb-6 max-w-lg mx-auto">
+            <p className="text-xs sm:text-sm text-[#211a1d]/60 mb-4 sm:mb-6 max-w-lg mx-auto">
               Schedule a free 15‑minute placement call to discuss your goals, level, and the best group schedule.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3.5 bg-gradient-to-r from-[#6320ee] to-[#8075ff] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#6320ee]/30 transition-all duration-300 hover:scale-105 active:scale-95">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <button className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#005D6D] to-[#6C8F99] text-white font-semibold rounded-lg sm:rounded-xl text-sm sm:text-base hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95">
                 <span className="flex items-center justify-center gap-2">
-                  <Calendar className="w-5 h-5" />
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
                   Book your 15‑min placement call
                 </span>
               </button>
               
-              <button className="px-8 py-3.5 bg-white border-2 border-[#cad5ca] text-[#211a1d] font-semibold rounded-xl hover:border-[#8075ff]/50 hover:shadow-md transition-all">
+              <button className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-white border-2 border-[#CADADF] text-[#211a1d] font-semibold rounded-lg sm:rounded-xl text-sm sm:text-base hover:border-[#005D6D]/50 hover:shadow-md transition-all">
                 <span className="flex items-center justify-center gap-2">
-                  <MessageCircle className="w-5 h-5" />
+                  <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#005D6D]" />
                   Chat on WhatsApp
                 </span>
               </button>
             </div>
             
-            <p className="mt-6 text-sm text-[#211a1d]/40">
+            <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-[#211a1d]/40">
               Typically respond within 30 minutes during business hours
             </p>
           </div>
         </div>
+
+       
 
       </div>
     </section>
